@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Phone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -29,19 +28,17 @@ class UserController extends Controller
             'password' => 'required|min:6', 
         ]);
     
-        // ✅ إنشاء المستخدم مع كلمة مرور مشفرة
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password) // تشفير كلمة المرور
+            'password' => Hash::make($request->password) 
         ]);
     
-        // ✅ إضافة الهاتف المرتبط بالمستخدم
         $user->phone()->create([
             'phone_number' => $request->phone_number
         ]);
     
         return redirect()->route('users.index')->with('success', 'تمت إضافة المستخدم بنجاح!');
-    }
+    }  
 }
 

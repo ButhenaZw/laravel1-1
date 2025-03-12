@@ -15,4 +15,5 @@
         <td>{{ $user->phone ? $user->phone->phone_number : 'لا يوجد هاتف' }}</td>
     </tr>
     @endforeach
+    
 </table>

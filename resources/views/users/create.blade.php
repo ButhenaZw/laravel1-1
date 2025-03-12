@@ -10,6 +10,7 @@
     </div>
 @endif
 
+
 <form action="{{ route('users.store') }}" method="POST">
     @csrf
     <label>الاسم:</label>
